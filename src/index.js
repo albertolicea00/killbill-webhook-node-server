@@ -1,4 +1,5 @@
 import express from 'express';
+import configRoutes from './routes/config.route.js';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -9,6 +10,8 @@ const HOST = process.env.APP_HOST || 'http://localhost';
 const app = express();
 app.use(express.json());
 
+// ROUTES LIST
+app.use('/kb/config', configRoutes);
 
 // Iniciar el servidor
 app.listen(PORT, () => {
