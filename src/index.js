@@ -1,6 +1,6 @@
 import express from 'express';
-import listenerRoutes from './routes/listener.route.js';
-import configRoutes from './routes/config.route.js';
+import listenerRoutes from './routes/listener.js';
+import configRoutes from './routes/config.js';
 import dotenv from 'dotenv';
 
 dotenv.config();

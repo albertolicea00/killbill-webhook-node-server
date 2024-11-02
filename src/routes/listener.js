@@ -19,7 +19,13 @@ router
     const data = req.body;
     const eventType = data.eventType;
 
+    // Dictionary mapping event types to lists of handler functions :
+    //  - if handlers are registered, Execute handler function in the event_handlers mapping
+    //  - if handlers are not found for the event type, log exception and returned error response (do noting)
+    // NOTE: To create a sequence of actions, include them as functions executed within the handle events
     const handler = EVENT_HANDLERS_MAP[eventType];
+    // add new event types in 'EVENT_HANDLERS_MAP' here if they are unsupported ...
+
     logger.info(
       `Event received from KillBill: '${eventType}' with data: ${JSON.stringify(data)}`
     );
@@ -32,6 +38,7 @@ router
         event_request: data,
       });
     } else {
+      // Handle unknown event type
       console.error(
         `Unknown event received: ${eventType} with data: ${JSON.stringify(data)}`
       );
