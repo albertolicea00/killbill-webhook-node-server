@@ -33,4 +33,17 @@ router
     }
   })
 
+  /**
+   * DELETE /
+   * Delete existing push notification callbacks.
+   * @route DELETE /
+   * @returns {Object} 200 - Null
+   */
+  .delete('/', async (req, res) => {
+    // prettier-ignore
+    await new killbill.TenantApi(kbConfig, null, kbAxios).deletePushNotificationCallbacks(xKillbillCreatedBy);
+
+    res.status(200).json();
+  });
+
 export default router;
