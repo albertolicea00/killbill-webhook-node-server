@@ -34,6 +34,19 @@ router
   })
 
   /**
+   * GET /
+   * Retrieve push notification callbacks.
+   * @route GET /
+   * @returns {Object} 200 - An array of push notification callbacks
+   */
+  .get('/', async (req, res) => {
+    // prettier-ignore
+    const result = await new killbill.TenantApi(kbConfig, null, kbAxios).getPushNotificationCallbacks();
+
+    res.json(result.data);
+  })
+
+  /**
    * DELETE /
    * Delete existing push notification callbacks.
    * @route DELETE /
