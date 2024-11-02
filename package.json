@@ -1,0 +1,26 @@
+{
+  "name": "killbill-webhook-node-server",
+  "version": "1.0.0",
+  "author": "albertolicea00",
+  "description": "",
+  "type": "module",
+  "main": "src/index.js",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "killbill": "^0.24.0",
+    "winston": "^3.16.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "prettier": "^3.2.5"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "build": "node src --out-dir dist",
+    "test": "mocha --experimental-modules 'test/**/*.test.js' --timeout 5000",
+    "format": "prettier --write \"**/*.js\""
+  }
+}
