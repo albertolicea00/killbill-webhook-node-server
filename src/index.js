@@ -1,4 +1,5 @@
 import express from 'express';
+import listenerRoutes from './routes/listener.route.js';
 import configRoutes from './routes/config.route.js';
 import dotenv from 'dotenv';
 
@@ -12,6 +13,7 @@ app.use(express.json());
 
 // ROUTES LIST
 app.use('/kb/config', configRoutes);
+app.use('/kb/listener', listenerRoutes);
 
 // Iniciar el servidor
 app.listen(PORT, () => {
